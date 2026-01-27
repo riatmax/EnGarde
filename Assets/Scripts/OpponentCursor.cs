@@ -7,9 +7,6 @@ using TMPro;
 
 public class OpponentCursor : MonoBehaviour
 {
-    public string win;
-    public string lose;
-    
     float x;
     float y;
     float randPace;
