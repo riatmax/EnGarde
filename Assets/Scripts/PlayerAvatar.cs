@@ -1,39 +1,73 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAvatar : MonoBehaviour
 {
-    [Header("Movement Info")]
-    [SerializeField] private float moveSpeed;
-    private PlayerInput inputActions;
-    private Vector2 moveInput;
+    private PlayerInputActions inputActions;
+    private Rigidbody2D rb;
 
+    private float moveInput;
 
-    public Animator ani;
-    public float distChars;
-    public bool closing = true;
+    [Header("Movement")]
+    public float moveSpeed = 8f;
+    public float jumpForce = 14f;
+
+    [Header("Ground Check")]
+    public Transform groundCheck;
+    public float groundRadius = 0.2f;
+    public LayerMask groundLayer;
+
+    private bool isGrounded;
 
     private void Awake()
     {
-        inputActions = new PlayerInput();
+        inputActions = new PlayerInputActions();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
     {
         inputActions.Enable();
+
+        inputActions.Player.Move.performed += OnMove;
+        inputActions.Player.Move.canceled += OnMove;
+
+        inputActions.Player.Jump.performed += OnJump;
     }
 
     private void OnDisable()
     {
+        inputActions.Player.Move.performed -= OnMove;
+        inputActions.Player.Move.canceled -= OnMove;
+
+        inputActions.Player.Jump.performed -= OnJump;
+
         inputActions.Disable();
     }
 
     private void Update()
     {
-        moveInput = inputActions.Player.Move.ReadValue<Vector2>();
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundRadius,
+            groundLayer
+        );
+    }
 
-        Vector3 movement = new Vector3(moveInput.x, moveInput.y, 0);
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<float>();
+    }
+
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (!isGrounded) return;
+
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 }

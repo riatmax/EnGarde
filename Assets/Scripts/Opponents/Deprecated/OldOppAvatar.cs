@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OppAvatar : MonoBehaviour
+public class OldOppAvatar : MonoBehaviour
 {
     public Animator ani;
     public GameObject player;

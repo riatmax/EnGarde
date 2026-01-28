@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BG : MonoBehaviour
 {
-    public OpponentCursor OppCursor;
+    //public OpponentCursor OppCursor;
 
     public void ResetStage()
     {
-        OppCursor.ResetStage();
+        //OppCursor.ResetStage();
     }
 }
