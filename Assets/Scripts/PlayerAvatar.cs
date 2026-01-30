@@ -1,39 +1,84 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAvatar : MonoBehaviour
 {
-    [Header("Movement Info")]
-    [SerializeField] private float moveSpeed;
-    private PlayerInput inputActions;
-    private Vector2 moveInput;
+    private PlayerInputActions inputActions;
+    private Rigidbody2D rb;
 
+    private float moveInput;
 
-    public Animator ani;
-    public float distChars;
-    public bool closing = true;
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 8f;
+    [SerializeField] private float jumpForce = 14f;
+
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+
+    [Header("Animation")]
+    [SerializeField] private Animator anim;
+
+    private bool isGrounded;
 
     private void Awake()
     {
-        inputActions = new PlayerInput();
+        inputActions = new PlayerInputActions();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
     {
         inputActions.Enable();
+
+        inputActions.Player.Move.performed += OnMove;
+        inputActions.Player.Move.canceled += OnMove;
+
+        inputActions.Player.Jump.performed += OnJump;
     }
 
     private void OnDisable()
     {
+        inputActions.Player.Move.performed -= OnMove;
+        inputActions.Player.Move.canceled -= OnMove;
+
+        inputActions.Player.Jump.performed -= OnJump;
+
         inputActions.Disable();
     }
 
     private void Update()
     {
-        moveInput = inputActions.Player.Move.ReadValue<Vector2>();
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundRadius,
+            groundLayer
+        );
+    }
 
-        Vector3 movement = new Vector3(moveInput.x, moveInput.y, 0);
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        if (rb.linearVelocity.x == 0)
+        {
+            anim.SetInteger("Velocity", 0);
+        }
+        else
+        {
+            anim.SetInteger("Velocity", (int)rb.linearVelocity.x);
+        }
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<float>();
+    }
+
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (!isGrounded) return;
+
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 }
