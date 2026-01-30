@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OpponentAvatar : MonoBehaviour
+public class OpponentMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private PlayerAvatar player;
