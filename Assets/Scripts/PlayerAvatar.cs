@@ -1,29 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using DG.Tweening;
 
 public class PlayerAvatar : MonoBehaviour
 {
-    private Tween moveTween;
     private PlayerInputActions inputActions;
     private Rigidbody2D rb;
 
     private float moveInput;
-    private float lastStepTime;
-
-    [Header("Step Movement")]
-    public float stepDistance = 1.5f;
-    public float stepDuration = 0.15f;
-    public float stepCooldown = 0.25f;
 
     [Header("Movement")]
-    public float moveSpeed = 8f;
-    public float jumpForce = 14f;
+    [SerializeField] private float moveSpeed = 8f;
+    [SerializeField] private float jumpForce = 14f;
 
     [Header("Ground Check")]
-    public Transform groundCheck;
-    public float groundRadius = 0.2f;
-    public LayerMask groundLayer;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+
+    [Header("Animation")]
+    [SerializeField] private Animator anim;
 
     private bool isGrounded;
 
@@ -65,6 +60,14 @@ public class PlayerAvatar : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        if (rb.linearVelocity.x == 0)
+        {
+            anim.SetInteger("Velocity", 0);
+        }
+        else
+        {
+            anim.SetInteger("Velocity", (int)rb.linearVelocity.x);
+        }
     }
 
     private void OnMove(InputAction.CallbackContext context)
