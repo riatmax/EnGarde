@@ -1,12 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class PlayerAvatar : MonoBehaviour
 {
+    private Tween moveTween;
     private PlayerInputActions inputActions;
     private Rigidbody2D rb;
 
     private float moveInput;
+    private float lastStepTime;
+
+    [Header("Step Movement")]
+    public float stepDistance = 1.5f;
+    public float stepDuration = 0.15f;
+    public float stepCooldown = 0.25f;
 
     [Header("Movement")]
     public float moveSpeed = 8f;

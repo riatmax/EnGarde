@@ -137,7 +137,7 @@ public class OldOpponentCursor : MonoBehaviour
     }
     private void SLunge()
     {
-        ani.Play("OppCursorAttack");
+        //ani.Play("OppCursorAttack");
         ROWQuadMover();
     }
     private void DLunge()

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6677968544307199678}
   - component: {fileID: 4602334900433056943}
   - component: {fileID: 1616489772267076831}
-  - component: {fileID: 7649769572133762435}
   - component: {fileID: 5880548325404489371}
   - component: {fileID: -8371216789305872568}
+  - component: {fileID: -5673347582583732918}
   m_Layer: 0
   m_Name: Tutorio
   m_TagString: Untagged
@@ -113,21 +113,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7649769572133762435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288460429482789160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7adc47652c58b4398d8582c910f94f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ani: {fileID: 1616489772267076831}
-  player: {fileID: 0}
-  closing: 1
 --- !u!61 &5880548325404489371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,3 +186,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-5673347582583732918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288460429482789160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebede7d831ec9c4abac801185fb2241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackList: []
+  distBetweenFencers: 3
+  moveSpeed: 5
