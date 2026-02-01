@@ -7,14 +7,14 @@ public class OpponentMovement : MonoBehaviour
     public bool isInCorner;
 
     [Header("Movement Settings")]
-    [SerializeField] private float maxSpeed = 10f;
-    [SerializeField] private float stoppingDistance = 0.05f; // "Close enough"
-    [SerializeField] private float decelerationArea = 0.5f; // Start slowing down here
-    [SerializeField] private float distFromPlayer = 2.5f;
+    [SerializeField] protected float maxSpeed = 10f;
+    [SerializeField] protected float stoppingDistance = 0.05f; // "Close enough"
+    [SerializeField] protected float decelerationArea = 0.5f; // Start slowing down here
+    [SerializeField] protected float distFromPlayer = 2.5f;
 
     [Header("Boundaries")]
     [SerializeField] protected Collider2D rightCollider;
-    [SerializeField] private Collider2D leftCollider;
+    [SerializeField] protected Collider2D leftCollider;
     protected float rightBound;
     protected float leftBound;
     
