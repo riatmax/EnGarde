@@ -17,6 +17,9 @@ public class OpponentMovement : MonoBehaviour
     [SerializeField] protected Collider2D leftCollider;
     protected float rightBound;
     protected float leftBound;
+
+    [Header("Animation")]
+    [SerializeField] protected Animator anim;
     
 
     private void Awake()
@@ -42,7 +45,6 @@ public class OpponentMovement : MonoBehaviour
         // 2. The Decision Tree
         if (isInCorner)
         {
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x, player.transform.position.y);
             // If we're in the corner, we ONLY move if the player is getting TOO FAR away.
             // If the player is crowding us (currentDist < distFromPlayer), we stay put.
             if (currentDist > distFromPlayer)
@@ -62,6 +64,9 @@ public class OpponentMovement : MonoBehaviour
             targetX = Mathf.Clamp(targetX, leftBound, rightBound);
             MoveToX(targetX);
         }
+
+        gameObject.transform.position = new Vector2(gameObject.transform.position.x, player.transform.position.y);
+        UpdateAnimation();
     }
 
     private void MoveToX(float targetX)
@@ -83,5 +88,16 @@ public class OpponentMovement : MonoBehaviour
 
         // 4. Apply Velocity
         rb.linearVelocity = new Vector2(desiredVelocityX, rb.linearVelocity.y);
+    }
+
+    private void UpdateAnimation()
+    {
+        float deadZone = 0.15f;
+
+        float vx = rb.linearVelocity.x;
+
+        int animDir = Mathf.Abs(vx) < deadZone ? 0 : (int)Mathf.Sign(vx);
+
+        anim.SetInteger("Velocity", animDir);
     }
 }

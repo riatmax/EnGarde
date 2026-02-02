@@ -1,9 +1,51 @@
 fileFormatVersion: 2
-guid: 7c04bff5950148449994663d5da4f6f9
+guid: fe68bcfd6d270ee4fa124b234d5e5d65
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 9111819964566639020
+    second: BigGuyLungeSheet_0
+  - first:
+      213: 8167507774725691049
+    second: BigGuyLungeSheet_1
+  - first:
+      213: -4723356848418025279
+    second: BigGuyLungeSheet_2
+  - first:
+      213: 5787687411993157590
+    second: BigGuyLungeSheet_3
+  - first:
+      213: -6236686894373797221
+    second: BigGuyLungeSheet_4
+  - first:
+      213: -6959568812004225926
+    second: BigGuyLungeSheet_5
+  - first:
+      213: -3706696905135558610
+    second: BigGuyLungeSheet_6
+  - first:
+      213: 7039534103739173806
+    second: BigGuyLungeSheet_7
+  - first:
+      213: -3377669119337509594
+    second: BigGuyLungeSheet_8
+  - first:
+      213: -7194062478086391423
+    second: BigGuyLungeSheet_9
+  - first:
+      213: 6505512352270763538
+    second: BigGuyLungeSheet_10
+  - first:
+      213: 7293405463035076155
+    second: BigGuyLungeSheet_11
+  - first:
+      213: -2191939847674603068
+    second: BigGuyLungeSheet_12
+  - first:
+      213: -7503720092868648310
+    second: BigGuyLungeSheet_13
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +62,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,7 +76,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,9 +106,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -75,9 +119,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -87,21 +132,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -111,377 +145,336 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy 1_0
+      name: BigGuyLungeSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 64
-        height: 32
+        x: 20
+        y: 2
+        width: 23
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a09e6ff8b8b09e2428bd5680befc0275
-      internalID: -362223520
+      spriteID: ca19e453bffa37e70800000000000000
+      internalID: 9111819964566639020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_1
+      name: BigGuyLungeSheet_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
-        width: 64
-        height: 32
+        x: 84
+        y: 2
+        width: 23
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1033a60510db076429bb5eea095ab9e8
-      internalID: 1913769126
+      spriteID: 9a614cc3c01d85170800000000000000
+      internalID: 8167507774725691049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_2
+      name: BigGuyLungeSheet_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 160
-        width: 64
-        height: 32
+        x: 149
+        y: 2
+        width: 24
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6b48115739a8e3a42962ef4230b8d2df
-      internalID: 679430812
+      spriteID: 1c092a6c8f3437eb0800000000000000
+      internalID: -4723356848418025279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_3
+      name: BigGuyLungeSheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 32
+        x: 213
+        y: 2
+        width: 24
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8f8cde25d655aca4b82be25d0cc6e06e
-      internalID: -68057102
+      spriteID: 6df1ad6690ff15050800000000000000
+      internalID: 5787687411993157590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_4
+      name: BigGuyLungeSheet_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 32
+        x: 277
+        y: 2
+        width: 27
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cc4042f08f81f1f428b3763db247ac6b
-      internalID: 910840053
+      spriteID: b92048d1056d279a0800000000000000
+      internalID: -6236686894373797221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_5
+      name: BigGuyLungeSheet_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 32
+        x: 341
+        y: 2
+        width: 27
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7cd5205e920d9e744ae119d5b512e4d9
-      internalID: 753075597
+      spriteID: a7cc992f905aa6f90800000000000000
+      internalID: -6959568812004225926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_6
+      name: BigGuyLungeSheet_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 64
-        height: 32
+        x: 405
+        y: 2
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 78d3a8cfcfcc8994ba3001b1ea3be0fa
-      internalID: 99836094
+      spriteID: e20fa5fbdca2f8cc0800000000000000
+      internalID: -3706696905135558610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_7
+      name: BigGuyLungeSheet_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 64
-        height: 32
+        x: 469
+        y: 2
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f3984acf76193034abc8862b26a771ed
-      internalID: 593894404
+      spriteID: eab0f9568f271b160800000000000000
+      internalID: 7039534103739173806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_8
+      name: BigGuyLungeSheet_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
-        width: 64
-        height: 32
+        x: 533
+        y: 2
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 43b7a6cade2f06a469d70c58b884f511
-      internalID: 695373644
+      spriteID: 62dc415e4db1021d0800000000000000
+      internalID: -3377669119337509594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_9
+      name: BigGuyLungeSheet_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 32
+        x: 597
+        y: 2
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 019cd77de6e2b2c49bf4ccda39c5a247
-      internalID: -134318464
+      spriteID: 189b1bdba4e892c90800000000000000
+      internalID: -7194062478086391423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_10
+      name: BigGuyLungeSheet_10
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 32
+        x: 661
+        y: 2
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5ad2826c8ff1f874d95d395fdaa0c7d1
-      internalID: -1725761835
+      spriteID: 216c3074409384a50800000000000000
+      internalID: 6505512352270763538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_11
+      name: BigGuyLungeSheet_11
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 32
+        x: 725
+        y: 2
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0db9b7fe3d31214459627ee0b7fd185b
-      internalID: 790447281
+      spriteID: b3e591360a1673560800000000000000
+      internalID: 7293405463035076155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_12
+      name: BigGuyLungeSheet_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 64
-        height: 32
+        x: 789
+        y: 2
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8cf84eaa9a5b57349ace337a139b76e5
-      internalID: -83026075
+      spriteID: 4c9d45a625aa491e0800000000000000
+      internalID: -2191939847674603068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy 1_13
+      name: BigGuyLungeSheet_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 64
-        height: 32
+        x: 853
+        y: 2
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9d46fbcc24fd91646bf3fada3582148d
-      internalID: -676738662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy 1_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cef654afd04ed5d448f1b4d2ccdeb910
-      internalID: -2003039319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy 1_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee05d897b95f0ba439e4aaf152ed75cc
-      internalID: -363112489
+      spriteID: a826a9af45e6dd790800000000000000
+      internalID: -7503720092868648310
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      enemy 1_10: -1725761835
-      enemy 1_1: 1913769126
-      enemy 1_3: -68057102
-      enemy 1_11: 790447281
-      enemy 1_4: 910840053
-      enemy 1_15: -363112489
-      enemy 1_13: -676738662
-      enemy 1_14: -2003039319
-      enemy 1_9: -134318464
-      enemy 1_6: 99836094
-      enemy 1_12: -83026075
-      enemy 1_0: -362223520
-      enemy 1_7: 593894404
-      enemy 1_2: 679430812
-      enemy 1_5: 753075597
-      enemy 1_8: 695373644
-  spritePackingTag: 
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
