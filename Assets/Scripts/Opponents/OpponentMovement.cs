@@ -92,7 +92,7 @@ public class OpponentMovement : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        float deadZone = 0.15f;
+        float deadZone = 0.05f;
 
         float vx = rb.linearVelocity.x;
 

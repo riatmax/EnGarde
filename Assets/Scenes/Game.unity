@@ -357,11 +357,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &438587487 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3044813160184334042, guid: d2f25b241c081154ab3c9292ac11e398, type: 3}
-  m_PrefabInstance: {fileID: 2265272245137272052}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,11 +678,11 @@ GameObject:
   - component: {fileID: 1012941764}
   m_Layer: 0
   m_Name: OppCursor
-  m_TagString: Untagged
+  m_TagString: OpponentCursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1012941760
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -952,11 +947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c03ad0137a895847a62a20fbf3e2a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1171472802 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7355854996198005314, guid: a6da21e7165cf1143a223c2be20062e7, type: 3}
-  m_PrefabInstance: {fileID: 1772404800996416115}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1171472803 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3515759368571882257, guid: a6da21e7165cf1143a223c2be20062e7, type: 3}
@@ -1320,7 +1310,7 @@ GameObject:
   - component: {fileID: 1430261961}
   m_Layer: 0
   m_Name: intro
-  m_TagString: Untagged
+  m_TagString: Intro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1429,11 +1419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dfd2154d6e48c4a9920ba39e7f639d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 1430261958}
-  player: {fileID: 438587487}
-  opp: {fileID: 1171472802}
-  oppCursor: {fileID: 1012941759}
-  playerCursor: {fileID: 2014967639}
+  anim: {fileID: 1430261958}
+  introDone: 0
 --- !u!1 &1514992561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,11 +1702,11 @@ GameObject:
   - component: {fileID: 2014967640}
   m_Layer: 0
   m_Name: PlayCursor
-  m_TagString: Untagged
+  m_TagString: PlayerCursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2014967640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,6 +1853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SirLiftsalot
       objectReference: {fileID: 0}
+    - target: {fileID: 7355854996198005314, guid: a6da21e7165cf1143a223c2be20062e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1925,7 +1916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3044813160184334042, guid: d2f25b241c081154ab3c9292ac11e398, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4,29 +4,17 @@ using UnityEngine;
 
 public class Intro : MonoBehaviour
 {
-    public Animator ani;
+    [SerializeField] private Animator anim;
 
-    public GameObject player;
-    public GameObject opp;
-    public GameObject oppCursor;
-    public GameObject playerCursor;
-    // Start is called before the first frame update
+    public bool introDone = false;
+    
     void Start()
     {
-        ani.Play("Intro");
+        anim.Play("Intro");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void Deactivate()
     {
-        player.SetActive(true);
-        opp.SetActive(true);
-        oppCursor.SetActive(true);
-        playerCursor.SetActive(true);
-        gameObject.SetActive(false);
+        introDone = true;
     }
 }
