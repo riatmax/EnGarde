@@ -88,6 +88,6 @@ public class PlayerAvatar : MonoBehaviour
 
     private void OnFire(InputAction.CallbackContext context)
     {
-        Debug.Log("Fire");
+        anim.SetTrigger("Attack");
     }
 }
