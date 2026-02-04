@@ -20,12 +20,15 @@ public class OpponentMovement : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] protected Animator anim;
-    
 
+    [Header("Components")]
+    [SerializeField] protected GameManager gm;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindFirstObjectByType<PlayerAvatar>();
+        gm = FindFirstObjectByType<GameManager>();
         rightBound = rightCollider.bounds.min.x;
         leftBound = leftCollider.bounds.max.x;
     }
@@ -34,39 +37,42 @@ public class OpponentMovement : MonoBehaviour
     {
         if (player == null) return;
 
-        float myX = rb.position.x;
-        float playerX = player.transform.position.x;
-        float directionToPlayer = Mathf.Sign(playerX - myX);
-        float currentDist = Mathf.Abs(playerX - myX);
-
-        // 1. Calculate the ideal target
-        float targetX = playerX - (directionToPlayer * distFromPlayer);
-
-        // 2. The Decision Tree
-        if (isInCorner)
+        if (gm.introDone)
         {
-            // If we're in the corner, we ONLY move if the player is getting TOO FAR away.
-            // If the player is crowding us (currentDist < distFromPlayer), we stay put.
-            if (currentDist > distFromPlayer)
+            float myX = rb.position.x;
+            float playerX = player.transform.position.x;
+            float directionToPlayer = Mathf.Sign(playerX - myX);
+            float currentDist = Mathf.Abs(playerX - myX);
+
+            // 1. Calculate the ideal target
+            float targetX = playerX - (directionToPlayer * distFromPlayer);
+
+            // 2. The Decision Tree
+            if (isInCorner)
             {
-                MoveToX(targetX);
+                // If we're in the corner, we ONLY move if the player is getting TOO FAR away.
+                // If the player is crowding us (currentDist < distFromPlayer), we stay put.
+                if (currentDist > distFromPlayer)
+                {
+                    MoveToX(targetX);
+                }
+                else
+                {
+                    // Stop the "motor" so we don't push the player back
+                    rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                }
             }
             else
             {
-                // Stop the "motor" so we don't push the player back
-                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                // Not in corner? Standard spacing logic.
+                // Clamp the target to our bounds just in case
+                targetX = Mathf.Clamp(targetX, leftBound, rightBound);
+                MoveToX(targetX);
             }
-        }
-        else
-        {
-            // Not in corner? Standard spacing logic.
-            // Clamp the target to our bounds just in case
-            targetX = Mathf.Clamp(targetX, leftBound, rightBound);
-            MoveToX(targetX);
-        }
 
-        gameObject.transform.position = new Vector2(gameObject.transform.position.x, player.transform.position.y);
-        UpdateAnimation();
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x, player.transform.position.y);
+            UpdateAnimation();
+        }
     }
 
     private void MoveToX(float targetX)
@@ -92,7 +98,7 @@ public class OpponentMovement : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        float deadZone = 0.05f;
+        float deadZone = .001f;
 
         float vx = rb.linearVelocity.x;
 

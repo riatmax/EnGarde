@@ -36,6 +36,8 @@ public class PlayerAvatar : MonoBehaviour
         inputActions.Player.Move.canceled += OnMove;
 
         inputActions.Player.Jump.performed += OnJump;
+
+        inputActions.Player.Fire.performed += OnFire;
     }
 
     private void OnDisable()
@@ -44,6 +46,8 @@ public class PlayerAvatar : MonoBehaviour
         inputActions.Player.Move.canceled -= OnMove;
 
         inputActions.Player.Jump.performed -= OnJump;
+
+        inputActions.Player.Fire.performed -= OnFire;
 
         inputActions.Disable();
     }
@@ -80,5 +84,10 @@ public class PlayerAvatar : MonoBehaviour
         if (!isGrounded) return;
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    }
+
+    private void OnFire(InputAction.CallbackContext context)
+    {
+        Debug.Log("Fire");
     }
 }

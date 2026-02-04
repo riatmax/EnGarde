@@ -1,20 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCursor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private BoxCollider2D gridCollider;
+    private Bounds gridBounds;
+
+    private Camera cam;
+
+    private void Awake()
     {
-        
+        cam = Camera.main;
+        gridBounds = gridCollider.bounds;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 m = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        m.z = 0;
-        transform.position = m;
+        Vector3 mouseWorld = cam.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0;
+
+        float clampedX = Mathf.Clamp(mouseWorld.x, gridBounds.min.x, gridBounds.max.x);
+        float clampedY = Mathf.Clamp(mouseWorld.y, gridBounds.min.y, gridBounds.max.y);
+
+        transform.position = new Vector2(clampedX, clampedY);
     }
 }
