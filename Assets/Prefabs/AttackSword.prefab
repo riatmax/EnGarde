@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 0}
-  anim: {fileID: 3203555224709523258}
-  parried: 0
   playerCursor: {fileID: 0}
+  opp: {fileID: 0}
+  stamDam: 10
 --- !u!60 &4371029219246383858
 PolygonCollider2D:
   m_ObjectHideFlags: 0

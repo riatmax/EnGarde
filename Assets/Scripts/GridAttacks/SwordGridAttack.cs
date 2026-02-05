@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SwordGridAttack : MonoBehaviour
@@ -5,12 +6,12 @@ public class SwordGridAttack : MonoBehaviour
     public GameObject attackPoint;
     public GameObject playerCursor;
     public OpponentMovement opp;
-    public float stamDam;
+    public float stamDam = 10;
 
 
     private bool isCursorInside = false;
 
-    private void Awake()
+    private void Start()
     {
         attackPoint = GameObject.FindWithTag("AttackPoint");
         playerCursor = GameObject.FindWithTag("PlayerCursor");
@@ -28,13 +29,28 @@ public class SwordGridAttack : MonoBehaviour
 
     private void PerformParry()
     {
-        opp.stam -= stamDam;
+        Debug.Log("<color=green>PARRY SUCCESS!</color>");
+
+        // 1. Damage stamina
+        opp.currStam -= stamDam;
+
+        // 2. IMPORTANT: Force the opponent out of the Attack State immediately
+        // This stops the AttackState logic from running its next Update
+        opp.StateMachine.ChangeState(opp.SpacingState);
+
+        // 3. IMPORTANT: Tell the hitbox to stop everything RIGHT NOW
+        opp.DeactivateHitbox();
+
+        // 4. Force the animator to stop the attack animation so no more events fire
+        opp.anim.Play("Idle", 0, 0f);
+
         Destroy(gameObject);
     }
 
     public void moveToPoint()
     {
         transform.position = new Vector2(attackPoint.transform.position.x, transform.position.y);
+        StartCoroutine(destroy());
     }
 
     // Use these to just track the cursor's presence
@@ -52,5 +68,11 @@ public class SwordGridAttack : MonoBehaviour
         {
             isCursorInside = false;
         }
+    }
+
+    private IEnumerator destroy()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }

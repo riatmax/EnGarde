@@ -12,6 +12,8 @@ TagManager:
   - OpponentAvatar
   - AttackPoint
   - AttackStart
+  - PlayerSpawn
+  - OpponentSpawn
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class OpponentAttackState : IOpponentState
 
     public void Enter()
     {
+        opponent.attacking = true;
         attackTime = 0;
 
         opponent.StopMovement();
@@ -36,5 +37,7 @@ public class OpponentAttackState : IOpponentState
 
     public void Exit()
     {
+        opponent.attacking = false;
+        opponent.DeactivateHitbox();
     }
 }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 public class OpponentMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -8,11 +10,14 @@ public class OpponentMovement : MonoBehaviour
     public OpponentStateMachine StateMachine { get; private set; }
 
     [Header("Stamina Stat")]
-    public float stam = 50f;
+    public float maxStam = 50f;
+    public float currStam;
+    public Image stamBar;
 
     [Header("States")]
     public OpponentSpacingState SpacingState;
     public OpponentAttackState QuickLunge;
+    public OpponentTiredState TiredState;
 
     [Header("Movement Settings")]
     public float maxSpeed = 10f;
@@ -46,7 +51,8 @@ public class OpponentMovement : MonoBehaviour
     public GameObject attackPrefab;
     public GameObject hitBoxGO;
     public hitBox hitBox;
-
+    public bool attacking = false;
+    public bool isTired = false;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,10 +67,13 @@ public class OpponentMovement : MonoBehaviour
         gridBounds = grid.bounds;
         attackStart = GameObject.FindWithTag("AttackStart");
 
-        hitBox.enabled = false;
+        hitBox.canCollide = false;
+
+        currStam = maxStam;
 
         SpacingState = new OpponentSpacingState(this);
         QuickLunge = new OpponentAttackState(this, animations[0]);
+        TiredState = new OpponentTiredState(this);
     }
 
     private void Start()
@@ -75,6 +84,16 @@ public class OpponentMovement : MonoBehaviour
     private void Update()
     {
         attackTimer -= Time.deltaTime;
+        stamBar.fillAmount = currStam / maxStam;
+        if (currStam <= 0)
+        {
+            StateMachine.ChangeState(TiredState);
+        }
+
+        if (StateMachine.CurrentState != QuickLunge && hitBox.canCollide)
+        {
+            DeactivateHitbox();
+        }
     }
     private void FixedUpdate()
     {
@@ -131,115 +150,17 @@ public class OpponentMovement : MonoBehaviour
     }
     public void ActivateHitbox ()
     {
-        hitBox.enabled = true;
+        hitBox.canCollide = true;
     }
     public void DeactivateHitbox()
     {
-        hitBox.enabled = false;
+        if (hitBox != null)
+        {
+            hitBox.canCollide = false;
+            // Force the physics check to fail immediately
+            hitBox.collidedWithPlayer = false;
+        }
     }
 }
 
-    /*private Rigidbody2D rb;
-    private PlayerAvatar player;
-    public bool isInCorner;
-
-    [Header("Movement Settings")]
-    [SerializeField] protected float maxSpeed = 10f;
-    [SerializeField] protected float stoppingDistance = 0.05f; // "Close enough"
-    [SerializeField] protected float decelerationArea = 0.5f; // Start slowing down here
-    [SerializeField] protected float distFromPlayer = 2.5f;
-
-    [Header("Boundaries")]
-    [SerializeField] protected Collider2D rightCollider;
-    [SerializeField] protected Collider2D leftCollider;
-    protected float rightBound;
-    protected float leftBound;
-
-    [Header("Animation")]
-    [SerializeField] protected Animator anim;
-
-    [Header("Components")]
-    [SerializeField] protected GameManager gm;
-    
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        player = FindFirstObjectByType<PlayerAvatar>();
-        gm = FindFirstObjectByType<GameManager>();
-        rightBound = rightCollider.bounds.min.x;
-        leftBound = leftCollider.bounds.max.x;
-    }
-
-    private void FixedUpdate()
-    {
-        if (player == null) return;
-
-        if (gm.introDone)
-        {
-            float myX = rb.position.x;
-            float playerX = player.transform.position.x;
-            float directionToPlayer = Mathf.Sign(playerX - myX);
-            float currentDist = Mathf.Abs(playerX - myX);
-
-            // 1. Calculate the ideal target
-            float targetX = playerX - (directionToPlayer * distFromPlayer);
-
-            // 2. The Decision Tree
-            if (isInCorner)
-            {
-                // If we're in the corner, we ONLY move if the player is getting TOO FAR away.
-                // If the player is crowding us (currentDist < distFromPlayer), we stay put.
-                if (currentDist > distFromPlayer)
-                {
-                    MoveToX(targetX);
-                }
-                else
-                {
-                    // Stop the "motor" so we don't push the player back
-                    rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-                }
-            }
-            else
-            {
-                // Not in corner? Standard spacing logic.
-                // Clamp the target to our bounds just in case
-                targetX = Mathf.Clamp(targetX, leftBound, rightBound);
-                MoveToX(targetX);
-            }
-
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x, player.transform.position.y);
-            UpdateAnimation();
-        }
-    }
-
-    private void MoveToX(float targetX)
-    {
-        float distanceToTarget = targetX - rb.position.x;
-        float absoluteDistance = Mathf.Abs(distanceToTarget);
-
-        // 2. Stop if we are within the tiny dead-zone
-        if (absoluteDistance <= stoppingDistance)
-        {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            return;
-        }
-
-        // 3. Calculate Speed
-        // If we're inside the decelerationArea, scale the speed down
-        float speedScaling = Mathf.Clamp01(absoluteDistance / decelerationArea);
-        float desiredVelocityX = Mathf.Sign(distanceToTarget) * maxSpeed * speedScaling;
-
-        // 4. Apply Velocity
-        rb.linearVelocity = new Vector2(desiredVelocityX, rb.linearVelocity.y);
-    }
-
-    private void UpdateAnimation()
-    {
-        float deadZone = .001f;
-
-        float vx = rb.linearVelocity.x;
-
-        int animDir = Mathf.Abs(vx) < deadZone ? 0 : (int)Mathf.Sign(vx);
-
-        anim.SetInteger("Velocity", animDir);
-    }*/
+   

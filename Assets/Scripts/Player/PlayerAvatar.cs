@@ -20,12 +20,19 @@ public class PlayerAvatar : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator anim;
 
+    [Header("Opponent")]
+    [SerializeField] private OpponentMovement opp;
+
     private bool isGrounded;
+    private bool canMove = true;
+    GameManager gm;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
+        opp = FindFirstObjectByType<OpponentMovement>();
+        gm = FindFirstObjectByType<GameManager>();
     }
 
     private void OnEnable()
@@ -71,12 +78,14 @@ public class PlayerAvatar : MonoBehaviour
         else
         {
             anim.SetInteger("Velocity", (int)rb.linearVelocity.x);
-        }
+        }  
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
+
         moveInput = context.ReadValue<float>();
+        
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -88,6 +97,15 @@ public class PlayerAvatar : MonoBehaviour
 
     private void OnFire(InputAction.CallbackContext context)
     {
-        anim.SetTrigger("Attack");
+        if (opp.attacking)
+            anim.SetTrigger("Parry");
+        else
+            anim.SetTrigger("Attack");
+
+        if (opp.isTired)
+        {
+            ScoreCounter.Instance.playerScore++;
+            gm.resetRound();
+        }
     }
 }
