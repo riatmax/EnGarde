@@ -11,72 +11,70 @@ public class OpponentSpacingState : IOpponentState
 
     public void Enter()
     {
-        // Optional: play walk animation
+        // Optional: Reset any specific animation triggers if needed
     }
 
     public void FixedUpdate()
     {
-        Rigidbody2D rb = opponent.RB;
-        PlayerAvatar player = opponent.Player;
+        opponent.FacePlayerY(); // Keep Y aligned (from your original helper)
 
-        float myX = rb.position.x;
-        float playerX = player.transform.position.x;
+        // 1. Determine which side of the player we are currently on
+        // returns 1 if opponent is on right, -1 if on left
+        float dirToMe = Mathf.Sign(opponent.transform.position.x - opponent.Player.transform.position.x);
 
-        float directionToPlayer = Mathf.Sign(playerX - myX);
-        float currentDist = Mathf.Abs(playerX - myX);
+        // 2. Calculate the "Sweet Spot" (Target Position)
+        // This keeps us 'distFromPlayer' away, but on the correct side
+        float targetX = opponent.Player.transform.position.x + (dirToMe * opponent.distFromPlayer);
 
-        float targetX = playerX - (directionToPlayer * opponent.distFromPlayer);
+        // 3. Move towards that target
+        MoveTowards(targetX);
 
-        // CORNER LOGIC
-        if (opponent.isInCorner)
+        // 4. Update Animator based on our new velocity
+        opponent.UpdateAnimation();
+
+        // 5. Check if we should attack
+        if (opponent.CanAttack())
         {
-            if (currentDist > opponent.distFromPlayer)
+            opponent.StateMachine.ChangeState(opponent.QuickLunge);
+        }
+    }
+
+    private void MoveTowards(float targetX)
+    {
+        // Calculate distance to the target point
+        float distToTarget = Mathf.Abs(targetX - opponent.transform.position.x);
+
+        // Determine move direction (-1 for left, 1 for right)
+        float moveDir = Mathf.Sign(targetX - opponent.transform.position.x);
+
+        float newSpeed = 0;
+
+        if (distToTarget > opponent.stoppingDistance)
+        {
+            // If we are far away, move at MaxSpeed
+            // If we are close (inside decelerationArea), slow down smoothly
+            if (distToTarget < opponent.decelerationArea)
             {
-                MoveToX(targetX);
+                float t = distToTarget / opponent.decelerationArea;
+                newSpeed = Mathf.Lerp(opponent.maxSpeed * 0.1f, opponent.maxSpeed, t);
             }
             else
             {
-                opponent.StopMovement();
+                newSpeed = opponent.maxSpeed;
             }
         }
         else
         {
-            targetX = Mathf.Clamp(targetX, opponent.leftBound, opponent.rightBound);
-            MoveToX(targetX);
+            // We are at the sweet spot, stop.
+            newSpeed = 0;
         }
 
-        opponent.FacePlayerY();
-        opponent.UpdateAnimation();
-
-        // ==== ATTACK TRANSITION ====
-        if (opponent.CanAttack())
-        {
-            opponent.StateMachine.ChangeState(opponent.AttackState);
-        }
-
+        // Apply Velocity
+        opponent.RB.linearVelocity = new Vector2(moveDir * newSpeed, opponent.RB.linearVelocity.y);
     }
 
     public void Exit()
     {
-        opponent.StopMovement();
-    }
-
-    private void MoveToX(float targetX)
-    {
-        Rigidbody2D rb = opponent.RB;
-
-        float distance = targetX - rb.position.x;
-        float absDist = Mathf.Abs(distance);
-
-        if (absDist <= opponent.stoppingDistance)
-        {
-            opponent.StopMovement();
-            return;
-        }
-
-        float speedScale = Mathf.Clamp01(absDist / opponent.decelerationArea);
-        float velocityX = Mathf.Sign(distance) * opponent.maxSpeed * speedScale;
-
-        rb.linearVelocity = new Vector2(velocityX, rb.linearVelocity.y);
+        // Clean up if needed
     }
 }

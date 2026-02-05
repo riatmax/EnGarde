@@ -6,7 +6,7 @@ public interface IOpponentState
     void FixedUpdate();
     void Exit();
 }
-public class OpponentStateMachine : MonoBehaviour
+public class OpponentStateMachine
 {
     public IOpponentState CurrentState { get; private set; }
 

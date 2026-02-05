@@ -10,6 +10,8 @@ TagManager:
   - PlayerAvatar
   - OpponentCursor
   - OpponentAvatar
+  - AttackPoint
+  - AttackStart
   layers:
   - Default
   - TransparentFX

@@ -30,17 +30,19 @@ AnimationClip:
       value: {fileID: 3564018180067909548, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
     - time: 0.2
       value: {fileID: -929106798388875421, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
-    - time: 0.41666666
+    - time: 0.6166667
       value: {fileID: -7874519236607673092, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
-    - time: 0.45
+    - time: 0.65
       value: {fileID: -552767258296440122, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
-    - time: 0.48333332
+    - time: 0.68333334
       value: {fileID: 4804696050641726794, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
-    - time: 0.51666665
+    - time: 0.71666664
       value: {fileID: -3970614703485421954, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
-    - time: 0.55
+    - time: 0.75
       value: {fileID: 8113472450695975341, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
-    - time: 0.5833333
+    - time: 0.78333336
+      value: {fileID: 8113472450695975341, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
+    - time: 1.3333334
       value: {fileID: 8113472450695975341, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
     attribute: m_Sprite
     path: 
@@ -75,12 +77,13 @@ AnimationClip:
     - {fileID: -3970614703485421954, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
     - {fileID: 8113472450695975341, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
     - {fileID: 8113472450695975341, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
+    - {fileID: 8113472450695975341, guid: aa1c692d7706874418dc946fe97f2477, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 1.35
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -99,4 +102,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.2
+    functionName: SpawnAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

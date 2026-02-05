@@ -3,30 +3,32 @@ using UnityEngine;
 public class OpponentAttackState : IOpponentState
 {
     private OpponentMovement opponent;
-    private float attackTimer;
+    private float attackTime = 0;
+    private AnimationClip animation;
 
-    private float attackDuration = 0.5f;
 
-    public OpponentAttackState(OpponentMovement opponent)
+    public OpponentAttackState(OpponentMovement opponent, AnimationClip ani)
     {
         this.opponent = opponent;
+        this.animation = ani;
     }
 
     public void Enter()
     {
-        attackTimer = attackDuration;
+        attackTime = 0;
 
         opponent.StopMovement();
 
-        // Trigger animation
         opponent.anim.SetTrigger("Attack");
+
+        opponent.ResetAttackCooldown();
     }
 
     public void FixedUpdate()
     {
-        attackTimer -= Time.fixedDeltaTime;
+        attackTime += Time.fixedDeltaTime;
 
-        if (attackTimer <= 0f)
+        if (attackTime >= animation.length)
         {
             opponent.StateMachine.ChangeState(opponent.SpacingState);
         }

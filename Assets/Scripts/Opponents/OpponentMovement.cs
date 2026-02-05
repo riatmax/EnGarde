@@ -7,9 +7,12 @@ public class OpponentMovement : MonoBehaviour
 
     public OpponentStateMachine StateMachine { get; private set; }
 
+    [Header("Stamina Stat")]
+    public float stam = 50f;
+
     [Header("States")]
     public OpponentSpacingState SpacingState;
-    public OpponentAttackState AttackState;
+    public OpponentAttackState QuickLunge;
 
     [Header("Movement Settings")]
     public float maxSpeed = 10f;
@@ -25,13 +28,24 @@ public class OpponentMovement : MonoBehaviour
 
     [Header("Animation")]
     public Animator anim;
+    public AnimationClip[] animations;
 
     [Header("Components")]
     public GameManager gm;
 
     [Header("Attack Settings")]
-    public float attackCooldown = 1.2f;
+    public float attackCooldown = 3f;
     private float attackTimer;
+
+    [Header("Grid Bounds")]
+    public BoxCollider2D grid;
+    private Bounds gridBounds;
+    private GameObject attackStart;
+
+    [Header("Attacks")]
+    public GameObject attackPrefab;
+    public GameObject hitBoxGO;
+    public hitBox hitBox;
 
     private void Awake()
     {
@@ -44,8 +58,13 @@ public class OpponentMovement : MonoBehaviour
 
         StateMachine = new OpponentStateMachine();
 
+        gridBounds = grid.bounds;
+        attackStart = GameObject.FindWithTag("AttackStart");
+
+        hitBox.enabled = false;
+
         SpacingState = new OpponentSpacingState(this);
-        AttackState = new OpponentAttackState(this);
+        QuickLunge = new OpponentAttackState(this, animations[0]);
     }
 
     private void Start()
@@ -102,6 +121,21 @@ public class OpponentMovement : MonoBehaviour
     public void ResetAttackCooldown()
     {
         attackTimer = attackCooldown;
+    }
+
+    public void SpawnAttack()
+    {
+        float randY;
+        randY = Random.Range(gridBounds.min.y, gridBounds.max.y);
+        Instantiate(attackPrefab, new Vector2(attackStart.transform.position.x, randY), Quaternion.identity);
+    }
+    public void ActivateHitbox ()
+    {
+        hitBox.enabled = true;
+    }
+    public void DeactivateHitbox()
+    {
+        hitBox.enabled = false;
     }
 }
 
