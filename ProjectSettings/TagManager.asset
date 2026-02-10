@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - CornerCheck
+  - Intro
+  - PlayerCursor
+  - PlayerAvatar
+  - OpponentCursor
+  - OpponentAvatar
+  - AttackPoint
+  - AttackStart
+  - PlayerSpawn
+  - OpponentSpawn
   layers:
   - Default
   - TransparentFX

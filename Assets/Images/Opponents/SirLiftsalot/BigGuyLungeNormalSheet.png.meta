@@ -1,49 +1,37 @@
 fileFormatVersion: 2
-guid: fe68bcfd6d270ee4fa124b234d5e5d65
+guid: aa1c692d7706874418dc946fe97f2477
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9111819964566639020
-    second: BigGuyLungeSheet_0
+      213: -9018403423290051151
+    second: BigGuyLungeNormalSheet_0
   - first:
-      213: 8167507774725691049
-    second: BigGuyLungeSheet_1
+      213: 5242059124460471379
+    second: BigGuyLungeNormalSheet_1
   - first:
-      213: -4723356848418025279
-    second: BigGuyLungeSheet_2
+      213: 6087638844165060910
+    second: BigGuyLungeNormalSheet_2
   - first:
-      213: 5787687411993157590
-    second: BigGuyLungeSheet_3
+      213: 3564018180067909548
+    second: BigGuyLungeNormalSheet_3
   - first:
-      213: -6236686894373797221
-    second: BigGuyLungeSheet_4
+      213: -929106798388875421
+    second: BigGuyLungeNormalSheet_4
   - first:
-      213: -6959568812004225926
-    second: BigGuyLungeSheet_5
+      213: -7874519236607673092
+    second: BigGuyLungeNormalSheet_5
   - first:
-      213: -3706696905135558610
-    second: BigGuyLungeSheet_6
+      213: -552767258296440122
+    second: BigGuyLungeNormalSheet_6
   - first:
-      213: 7039534103739173806
-    second: BigGuyLungeSheet_7
+      213: 4804696050641726794
+    second: BigGuyLungeNormalSheet_7
   - first:
-      213: -3377669119337509594
-    second: BigGuyLungeSheet_8
+      213: -3970614703485421954
+    second: BigGuyLungeNormalSheet_8
   - first:
-      213: -7194062478086391423
-    second: BigGuyLungeSheet_9
-  - first:
-      213: 6505512352270763538
-    second: BigGuyLungeSheet_10
-  - first:
-      213: 7293405463035076155
-    second: BigGuyLungeSheet_11
-  - first:
-      213: -2191939847674603068
-    second: BigGuyLungeSheet_12
-  - first:
-      213: -7503720092868648310
-    second: BigGuyLungeSheet_13
+      213: 8113472450695975341
+    second: BigGuyLungeNormalSheet_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +75,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -152,13 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigGuyLungeSheet_0
+      name: BigGuyLungeNormalSheet_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 2
-        width: 23
-        height: 30
+        x: 0
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca19e453bffa37e70800000000000000
-      internalID: 9111819964566639020
+      spriteID: 1b531a93ed138d280800000000000000
+      internalID: -9018403423290051151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_1
+      name: BigGuyLungeNormalSheet_1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 2
-        width: 23
-        height: 30
+        x: 512
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a614cc3c01d85170800000000000000
-      internalID: 8167507774725691049
+      spriteID: 354cf0500098fb840800000000000000
+      internalID: 5242059124460471379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_2
+      name: BigGuyLungeNormalSheet_2
       rect:
         serializedVersion: 2
-        x: 149
-        y: 2
-        width: 24
-        height: 30
+        x: 1024
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c092a6c8f3437eb0800000000000000
-      internalID: -4723356848418025279
+      spriteID: e29f35b6643ab7450800000000000000
+      internalID: 6087638844165060910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_3
+      name: BigGuyLungeNormalSheet_3
       rect:
         serializedVersion: 2
-        x: 213
-        y: 2
-        width: 24
-        height: 30
+        x: 1536
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6df1ad6690ff15050800000000000000
-      internalID: 5787687411993157590
+      spriteID: caf5bfbd6afe57130800000000000000
+      internalID: 3564018180067909548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_4
+      name: BigGuyLungeNormalSheet_4
       rect:
         serializedVersion: 2
-        x: 277
-        y: 2
-        width: 27
-        height: 30
+        x: 2048
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b92048d1056d279a0800000000000000
-      internalID: -6236686894373797221
+      spriteID: 36f61ab1a462b13f0800000000000000
+      internalID: -929106798388875421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_5
+      name: BigGuyLungeNormalSheet_5
       rect:
         serializedVersion: 2
-        x: 341
-        y: 2
-        width: 27
-        height: 30
+        x: 2560
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,20 +265,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7cc992f905aa6f90800000000000000
-      internalID: -6959568812004225926
+      spriteID: cfcf40da97618b290800000000000000
+      internalID: -7874519236607673092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_6
+      name: BigGuyLungeNormalSheet_6
       rect:
         serializedVersion: 2
-        x: 405
-        y: 2
-        width: 30
-        height: 28
+        x: 3072
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e20fa5fbdca2f8cc0800000000000000
-      internalID: -3706696905135558610
+      spriteID: 6ca26c57b1d2458f0800000000000000
+      internalID: -552767258296440122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_7
+      name: BigGuyLungeNormalSheet_7
       rect:
         serializedVersion: 2
-        x: 469
-        y: 2
-        width: 30
-        height: 28
+        x: 3584
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +309,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eab0f9568f271b160800000000000000
-      internalID: 7039534103739173806
+      spriteID: a4de8380a95bda240800000000000000
+      internalID: 4804696050641726794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_8
+      name: BigGuyLungeNormalSheet_8
       rect:
         serializedVersion: 2
-        x: 533
-        y: 2
-        width: 34
-        height: 28
+        x: 4096
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,20 +331,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62dc415e4db1021d0800000000000000
-      internalID: -3377669119337509594
+      spriteID: e76fec2e6fa85e8c0800000000000000
+      internalID: -3970614703485421954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigGuyLungeSheet_9
+      name: BigGuyLungeNormalSheet_9
       rect:
         serializedVersion: 2
-        x: 597
-        y: 2
-        width: 34
-        height: 28
+        x: 4608
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,96 +353,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 189b1bdba4e892c90800000000000000
-      internalID: -7194062478086391423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigGuyLungeSheet_10
-      rect:
-        serializedVersion: 2
-        x: 661
-        y: 2
-        width: 34
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 216c3074409384a50800000000000000
-      internalID: 6505512352270763538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigGuyLungeSheet_11
-      rect:
-        serializedVersion: 2
-        x: 725
-        y: 2
-        width: 34
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b3e591360a1673560800000000000000
-      internalID: 7293405463035076155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigGuyLungeSheet_12
-      rect:
-        serializedVersion: 2
-        x: 789
-        y: 2
-        width: 34
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c9d45a625aa491e0800000000000000
-      internalID: -2191939847674603068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigGuyLungeSheet_13
-      rect:
-        serializedVersion: 2
-        x: 853
-        y: 2
-        width: 34
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a826a9af45e6dd790800000000000000
-      internalID: -7503720092868648310
+      spriteID: da1d6a6f438d89070800000000000000
+      internalID: 8113472450695975341
       vertices: []
       indices: 
       edges: []
@@ -463,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c9e580e22cb8a3e4baa93c171e026ef9
     internalID: 0
     vertices: []
     indices: 
@@ -473,20 +373,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BigGuyLungeSheet_0: 9111819964566639020
-      BigGuyLungeSheet_1: 8167507774725691049
-      BigGuyLungeSheet_10: 6505512352270763538
-      BigGuyLungeSheet_11: 7293405463035076155
-      BigGuyLungeSheet_12: -2191939847674603068
-      BigGuyLungeSheet_13: -7503720092868648310
-      BigGuyLungeSheet_2: -4723356848418025279
-      BigGuyLungeSheet_3: 5787687411993157590
-      BigGuyLungeSheet_4: -6236686894373797221
-      BigGuyLungeSheet_5: -6959568812004225926
-      BigGuyLungeSheet_6: -3706696905135558610
-      BigGuyLungeSheet_7: 7039534103739173806
-      BigGuyLungeSheet_8: -3377669119337509594
-      BigGuyLungeSheet_9: -7194062478086391423
+      BigGuyLungeNormalSheet_0: -9018403423290051151
+      BigGuyLungeNormalSheet_1: 5242059124460471379
+      BigGuyLungeNormalSheet_2: 6087638844165060910
+      BigGuyLungeNormalSheet_3: 3564018180067909548
+      BigGuyLungeNormalSheet_4: -929106798388875421
+      BigGuyLungeNormalSheet_5: -7874519236607673092
+      BigGuyLungeNormalSheet_6: -552767258296440122
+      BigGuyLungeNormalSheet_7: 4804696050641726794
+      BigGuyLungeNormalSheet_8: -3970614703485421954
+      BigGuyLungeNormalSheet_9: 8113472450695975341
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

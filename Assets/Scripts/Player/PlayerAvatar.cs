@@ -20,12 +20,19 @@ public class PlayerAvatar : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator anim;
 
+    [Header("Opponent")]
+    [SerializeField] private OpponentMovement opp;
+
     private bool isGrounded;
+    private bool canMove = true;
+    GameManager gm;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
+        opp = FindFirstObjectByType<OpponentMovement>();
+        gm = FindFirstObjectByType<GameManager>();
     }
 
     private void OnEnable()
@@ -36,6 +43,8 @@ public class PlayerAvatar : MonoBehaviour
         inputActions.Player.Move.canceled += OnMove;
 
         inputActions.Player.Jump.performed += OnJump;
+
+        inputActions.Player.Fire.performed += OnFire;
     }
 
     private void OnDisable()
@@ -44,6 +53,8 @@ public class PlayerAvatar : MonoBehaviour
         inputActions.Player.Move.canceled -= OnMove;
 
         inputActions.Player.Jump.performed -= OnJump;
+
+        inputActions.Player.Fire.performed -= OnFire;
 
         inputActions.Disable();
     }
@@ -67,12 +78,14 @@ public class PlayerAvatar : MonoBehaviour
         else
         {
             anim.SetInteger("Velocity", (int)rb.linearVelocity.x);
-        }
+        }  
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
+
         moveInput = context.ReadValue<float>();
+        
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -80,5 +93,19 @@ public class PlayerAvatar : MonoBehaviour
         if (!isGrounded) return;
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    }
+
+    private void OnFire(InputAction.CallbackContext context)
+    {
+        if (opp.attacking)
+            anim.SetTrigger("Parry");
+        else
+            anim.SetTrigger("Attack");
+
+        if (opp.isTired)
+        {
+            ScoreCounter.Instance.playerScore++;
+            gm.resetRound();
+        }
     }
 }
